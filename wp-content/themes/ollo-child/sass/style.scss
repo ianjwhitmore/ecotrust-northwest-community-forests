@@ -1,0 +1,528 @@
+/*
+Theme Name: Ollo Child
+Author: Unify Theme
+Version: 1.0.0
+Author URI: https://themeforest.net/user/unifytheme
+Theme URI: http://unifytheme.com/thewp/ollo
+Description: This is Ollo Charity Wordpress theme
+License: ''
+License URI: ''
+Tags: one-column, two-columns, right-sidebar, custom-header, custom-menu, editor-style, featured-images, rtl-language-support, sticky-post, translation-ready, microformats
+Text Domain: ollo
+Template: ollo
+*/
+
+
+/*
+
+NWCF Colors 
+
+Gold:	Hex: #B18108
+Dark Green 	Hex: #1A3C14
+Lichen Green:	Hex: #AADD96
+Beige:	Hex: #A9917A
+
+*/
+
+
+$key: rgba(170,221,150,1);	/* Light Green */
+
+
+$gold: rgba(177,129,8,1);
+$darkgreen: rgba(26,60,20,1);
+$lightgreen: rgba(170,221,150,1);
+$beige: rgba(169,145,122,1);
+
+
+
+.gold{ color: $gold;}
+.darkgreen{ color: $darkgreen;}
+.lightgreen{ color: $lightgreen;}
+.beige{ color: $beige;}
+
+
+body.child-theme{
+	font-size: 16px;
+}
+
+
+
+/* Start Child Theme Styles (Override) */
+body.child-theme {
+
+	
+	.theme-inner-banner {
+
+		background-image: url('images/default-header-01.jpg');
+
+		
+		.opacity{
+			background: rgba(0,0,0,0.05);
+		}
+	
+	}
+	
+	
+	section h2{
+		margin-bottom: 1em;
+	}
+	
+	
+	h4, h5{
+		font-weight: 600;
+		margin-bottom: 2em;
+	}
+	
+	
+	img{border-radius: 0px!important;}
+	
+	
+	.wp-caption{
+		border: none;
+	}
+	
+	blockquote{
+		border: none;
+		max-width: 43%;
+		width: 43%;
+		float: left;	
+		margin-left: 2%;
+		font-weight: 700;
+		display: table;
+		height: 200px;
+
+		p{
+			display: table-cell;
+			vertical-align: middle;
+			font-family: "Open Sans", sans-serif!important;	
+		}
+
+	}
+
+	
+	a {
+		font-family: 'Open Sans', sans-serif;
+		color: $key;
+		text-decoration: none;
+		
+		&:hover{
+			color: $darkgreen;
+		}
+		
+		
+		&.volunteer-button{
+			background-color: $lightgreen;
+			color: #FFF!important;
+			border: none!important;
+			
+			&:hover{
+				background-color: $darkgreen!important;
+			}
+		}
+		
+		&.donate-button{
+			border-color: $lightgreen!important;
+		}
+		
+	}
+	
+	
+	.bottom-footer-banner{visibility: hidden;}
+	
+	
+	&.page-contact{
+		
+		.bottom-footer-banner{
+			visibility: visible;
+			margin-top: 8em;	
+			background-color: $gold!important;
+			
+			
+				
+
+			.container{
+				background-image: none;
+			}
+			
+			h3{
+				color: #FFF!important;
+				font-weight: 600;
+			}
+		}
+	}
+	
+		
+
+	
+	footer {
+		
+		margin-top: 8em;
+		
+		color: #FFF;
+		font-family: 'Open Sans', sans-serif!important;
+	
+		h6{
+			color: $lightgreen!important;
+			font-family: 'Open Sans', sans-serif!important;
+		}
+		
+	
+		p{
+			color: #FFF!important;
+			font-family: 'Open Sans', sans-serif!important;
+		}		
+		
+		button{
+			color: $gold;
+			padding: 0.4em 1.2em;
+		}
+		
+		a{
+			
+			&:hover{
+				color: $lightgreen;
+			}
+			
+		}
+	}
+	
+	
+	.bottom-footer-banner + footer{
+		margin-top: 0!important;
+	}
+
+	
+	
+	
+	
+	/* Hiding Elements */
+	.post-tag, .blog-details-content .tags{
+		display: none;
+	}
+	
+	
+	img.alignleft{
+		float: left;
+	}
+	
+	.blog-details-content .single-news .post blockquote + p{
+		clear: both;
+	}
+	
+	
+
+	.blog-details-content .single-news .post blockquote {
+	  color: #393939;
+	  line-height: 30px;
+	  position: relative;
+	  margin-top: -9px;
+	  
+	}
+	
+	
+	
+	/* Blog / Forest Stories */
+	.charity-theme .recent-news .single-news .post {
+		border: none!important;	
+	}
+	
+	
+	.theme-blog-sidebarOne h4 {
+		margin-top: 100px;
+	}
+	
+	
+	.charity-theme .blog-inner-page{
+		border-bottom: none;
+		padding-bottom: 25px;
+	}
+	
+	.charity-theme .recent-news .single-news .post .tag{
+		display: none;
+	}
+	
+	.theme-inner-banner .opacity ul a{
+		font-size: 18px;
+		color: #FFF;
+		
+		&:hover{
+			color: $lightgreen;
+		}
+		
+	}
+	
+	.theme-inner-banner .opacity ul > li + a:before,
+	.theme-inner-banner .opacity ul a + li:before	{
+		color: #fff;
+	    content: "/";
+	    font-family: "FontAwesome";
+	    font-size: 16px;
+	    padding: 0 5px;
+		
+	}
+	
+	
+	.blog-details-content .single-news .post blockquote p:before,
+	.blog-details-content .single-news .post blockquote p:after {
+	  font-family: 'Fontawesome';
+	  color: #c3c3c3;
+	  font-size: 16px;
+	  position: absolute;
+	  font-weight: 400;
+	}	
+
+	.blog-details-content .single-news .post blockquote p:before {
+	  content: '';
+	  //top:0;
+	  left: -15px;
+	}
+	
+	.blog-details-content .single-news .post blockquote p:after {
+	  content: '';
+	  //bottom: -4px;
+	  right: 0;
+	}
+	
+	
+	.charity-theme .recent-news .single-news .post h5 {
+		
+		margin-bottom: 1em;
+	
+		a{
+			color: $lightgreen;
+		}
+	}
+	
+	
+	.tp-caption{
+	
+		h1, h4{
+			color: #FFF!important;
+			font-weight: 600!important;
+		}
+	}
+	
+	.tp-bullets{
+		display: none;
+	}
+		
+		
+	.opacity {
+		 
+		 h2{
+			 text-transform: none!important;
+			 color: #FFF!important;
+			 font-size: 84px!important;
+			 max-width: 80%;
+			 margin-left: auto; 
+			 margin-right: auto;
+		 }
+	}
+	
+
+
+	/* Events */
+	
+	.tribe-events-list-widget .tribe-list-widget, .tribe-events-list-widget .tribe-list-widget li{
+		margin-left: 0;
+		padding-left: 0;
+	
+		h4{
+			font-weight: 400;
+		}
+	
+	}
+
+	
+	
+	/* King Composer */
+	
+	.kc_row{
+		padding-top: 5em;
+		padding-bottom: 1em;
+	}
+	
+	
+	.kc-icon-wrapper i{
+		color: inherit;
+	}
+	
+	.kc_button{
+		background-color: transparent;
+		color: inherit;
+		border: 2px solid $key;
+		-webkit-border-radius: 30px;
+		-moz-border-radius: 30px;
+		border-radius: 30px;
+		
+		&:hover{
+			background-color: $key;
+			color: #FFF;
+			text-decoration: none;
+		}
+		
+	}
+		
+		
+		
+	/* NWCF Sections */
+	
+	#nwcf-three-columns{
+		background: $key;
+		background: -moz-linear-gradient(top, $key 0%, $key 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, $key), color-stop(50%, $key), color-stop(50%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+		background: -webkit-linear-gradient(top, $key 0%, $key 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+		background: -o-linear-gradient(top, $key 0%, $key 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+		background: -ms-linear-gradient(top, $key 0%, $key 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+		background: linear-gradient(to bottom, $key 0%, $key 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd505', endColorstr='#ffffff', GradientType=0 );
+		
+		
+		
+		
+		.kc_column .kc-col-container{
+			background: #FFF;
+			padding: 3em 2em;
+			border-radius: 5px;
+			box-shadow: rgba(0, 0, 0, 0.03) 0px 3px 10px 0px;
+			
+			.kc-elm{
+				float: none;
+			}
+			
+			
+			@media screen and (max-width: 767px){
+				-webkit-border-radius: 0px;
+				-moz-border-radius: 0px;
+				border-radius: 0px;
+			}
+			
+			
+		}
+	}
+	
+	
+	
+	
+	/* PDF Links */
+	
+	.pdf-links{
+		
+		.kc_single_image{
+			
+			img{
+				display: inline;
+				-webkit-transition: all 0.5s;
+				-moz-transition: all 0.5s;
+				transition: all 0.5s;
+			}
+		
+			text-align: center;
+			
+			
+			.scapt{
+				font-family: 'Open Sans', sans-serif!important;
+				font-weight: 400;
+			}
+			
+			
+			&:hover{
+				img{
+					opacity: 0.66;
+				}
+			}
+			
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	.three-col-header{
+		min-height: 120px;
+	}
+	
+	
+	.ollo-margin-top{
+		margin-top: 60px;		
+	}
+	
+	
+	&.single-post {
+		
+		.blog-inner-page{
+			margin-top: 0;
+		}
+		
+	}
+		
+		
+		
+		
+	/* Events */
+	
+	.up-coming-event .single-events{ 
+	
+		.title ul li a{
+			font-family: 'Open Sans';
+		}
+		
+		.title h5 a	{
+			font-weight: 600;
+			}
+	}
+		
+		
+		
+		
+}
+
+
+
+
+	/* Misc. Color Overrides */
+	
+	.charity-theme .theme-blog-sidebarOne .sidebar-search form button, .footer-widget .sidebar-search form button{
+		
+		background: $key;
+		
+	}
+
+
+	.contact-us-form .wpcf7-form input[type="submit"]{
+		background-color: $key;
+		
+		&:hover{
+			background-color: $darkgreen!important;
+			color: #FFF;
+		}
+	}
+
+
+ 
+/* End Child Theme Override Styles */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Admin */
+
+body#tinymce.wp-editor blockquote{
+	font-weight: 600!important;
+}
+
+  
+
+
