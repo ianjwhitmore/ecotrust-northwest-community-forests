@@ -1,0 +1,19 @@
+{
+  "name": "certa-solutions",
+  "version": "1.0.0",
+  "description": "Development for Certa Solutions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianjwhitmore/certa-solutions-2018.git"
+  },
+  "author": "Ian J. Whitmore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianjwhitmore/certa-solutions-2018/issues"
+  },
+  "homepage": "https://github.com/ianjwhitmore/certa-solutions-2018#readme"
+}
