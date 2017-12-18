@@ -47,11 +47,17 @@ body.child-theme {
   /* Events */
   /* King Composer */
   /* NWCF Sections */
-  /* PDF Links */ }
+  /* PDF Links */
+  /* Media Queries */ }
+  body.child-theme .charity-header.fixed {
+    z-index: 9999; }
   body.child-theme .theme-inner-banner {
     background-image: url("images/default-header-01.jpg"); }
     body.child-theme .theme-inner-banner .opacity {
       background: rgba(0, 0, 0, 0.05); }
+      @media screen and (max-width: 575px) {
+        body.child-theme .theme-inner-banner .opacity {
+          padding: 120px 0 110px 0; } }
   body.child-theme .logo a, body.child-theme .footer-logo a {
     width: 200px;
     height: 100px;
@@ -161,6 +167,9 @@ body.child-theme {
     color: #333;
     font-weight: 400;
     border-width: 2px; }
+    body.child-theme .up-coming-event .charity-title a:hover {
+      background-color: #b18108;
+      color: #FFF; }
   body.child-theme .charity-theme .blog-inner-page {
     border-bottom: none;
     padding-bottom: 25px; }
@@ -235,6 +244,9 @@ body.child-theme {
     max-width: 80%;
     margin-left: auto;
     margin-right: auto; }
+    @media screen and (max-width: 991px) {
+      body.child-theme .opacity h2 {
+        font-size: 52px !important; } }
   body.child-theme .tribe-events-list-widget .tribe-list-widget, body.child-theme .tribe-events-list-widget .tribe-list-widget li {
     margin-left: 0;
     padding-left: 0; }
@@ -270,6 +282,10 @@ body.child-theme {
     min-height: 3.2em; }
   body.child-theme .kc-blog-posts-3 .kc-list-item-3 .fa-angle-right {
     display: none; }
+  body.child-theme .kc-blog-posts-3 .kc-list-item-3 .post-title-alt a:hover {
+    color: #aadd96; }
+  body.child-theme .kc-blog-posts-3 .kc-list-item-3 .entry-meta a {
+    color: #b18108; }
   body.child-theme .charity-theme .charity-pagination li span {
     padding: 6px 14px; }
   body.child-theme .kc_row {
@@ -333,6 +349,30 @@ body.child-theme {
     margin-top: 60px; }
   body.child-theme.single-post .blog-inner-page {
     margin-top: 0; }
+  @media screen and (max-width: 991px) {
+    body.child-theme #mega-menu-holder {
+      float: right;
+      width: 100%; }
+    body.child-theme .collapse-button {
+      float: right;
+      margin-top: -20px; }
+    body.child-theme .charity-header .theme-main-menu .right-content {
+      margin-top: 0; } }
+  @media screen and (max-width: 767px) {
+    body.child-theme .kc_column {
+      padding-left: 20px;
+      padding-right: 20px; }
+    body.child-theme .charity-header {
+      padding-top: 20px; }
+    body.child-theme #nwcf-three-columns {
+      background: none;
+      background-color: #1a3c14; } }
+  @media screen and (max-width: 575px) {
+    body.child-theme .contactUs-address {
+      text-align: center; }
+      body.child-theme .contactUs-address .icon {
+        margin-left: auto;
+        margin-right: auto; } }
 
 /* Misc. Color Overrides */
 .charity-theme .theme-blog-sidebarOne .sidebar-search form button, .footer-widget .sidebar-search form button {

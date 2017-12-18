@@ -29,6 +29,7 @@ function ollo_child_scripts() {
     wp_enqueue_style( 'ollo-parent-style', get_template_directory_uri(). '/style.css' );
    
      wp_enqueue_script( 'smooth-scroll-js', get_stylesheet_directory_uri() . '/js/smooth-scroll.js' );    
+    wp_enqueue_script( 'masonry', get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js' );   
     
     wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js' );   
 }
@@ -52,3 +53,12 @@ $classes[] = $post->post_type . '-' . $post->post_name;
 }
 return $classes;
 }
+
+
+
+
+
+
+
+
+

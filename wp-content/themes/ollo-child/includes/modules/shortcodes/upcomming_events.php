@@ -30,9 +30,9 @@
 
         <div class="row">
         	<?php
-				if ( empty( $events ) ) :
-				echo '<br><br><h3 class="text-center">There are currently no upcoming events.</h3>';
-				else: 
+				if ( empty( $events ) ) : ?>
+				<br><br><h3 class="text-center">Stay tuned! We'll share more upcoming events soon.</h3>
+				<?php else: 
 				foreach( $events as $event ) :
 			?>
                 <div class="col-sm-6 col-xs-12" >

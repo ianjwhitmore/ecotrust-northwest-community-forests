@@ -18,7 +18,7 @@
 					<div class="entry-meta">
 						
 						<span class="entry-date">
-							<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>"><?php echo get_the_date( 'F m, Y', $post->ID ); ?></a>
+							<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>"><?php echo get_the_date( 'F d, Y', $post->ID ); ?></a>
 						</span>
 						
 						<span class="entry-cats">
