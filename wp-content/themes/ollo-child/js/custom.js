@@ -11,6 +11,7 @@
 		
 		$('body.category').addClass('kingcomposer');
 		
+		$('body.single-post a[target]').append('<i class="fa fa-external-link" aria-hidden="true"></i>');
 		
 	});
 

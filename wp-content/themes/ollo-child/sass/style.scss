@@ -33,7 +33,9 @@ $gold: rgba(177,129,8,1);
 $darkgreen: rgba(26,60,20,1);
 $lightgreen: rgba(170,221,150,1);
 $beige: rgba(169,145,122,1);
-$charcoal: #333333; 
+$charcoal: #333333;     
+
+
 
 
 .gold{ color: $gold;}
@@ -97,7 +99,6 @@ body.child-theme {
 	
 	
 	img{border-radius: 0px!important;}
-	
 	
 	.wp-caption{
 		border: none;
@@ -185,7 +186,7 @@ body.child-theme {
 	
 	/* NAV */
 	
-	#mega-menu-holder>ul> li.current-category-parent {
+	#mega-menu-holder>ul> li.current-category-parent, #mega-menu-holder li.current-post-ancestor {
 	
 	
 		> a{
@@ -232,6 +233,23 @@ body.child-theme {
 				color: $lightgreen;
 			}
 			
+		}
+		
+		
+		.footer-widget button{
+			
+			-webkit-transition: all 0.5s;
+			-moz-transition: all 0.5s;
+			transition: all 0.5s;
+		
+			&:hover{
+				background-color: $gold;
+				color: #FFF;
+			
+				a{
+					color: #FFF;
+				}
+			}
 		}
 	}
 	
@@ -443,6 +461,13 @@ body.child-theme {
 		 }
 	}
 	
+		
+	.fa-external-link {
+			vertical-align: middle;
+			font-size: 1.25rem;
+			padding-left: 0.75rem;
+	}
+	
 
 
 	/* Events */
@@ -496,7 +521,7 @@ body.child-theme {
 				color: $gold;
 			}
 		}
-	}
+	}   
 		
 	.contact-us-form .wpcf7-form input[type="submit"]{
 		color: #FFF;
@@ -504,6 +529,12 @@ body.child-theme {
 
 	.owl-carousel .owl-item img{
 		display: inline-block;
+		
+		@media screen and (max-width: 767px){
+			display: block;  
+			
+		}
+		
 	}
 
 
@@ -553,6 +584,11 @@ body.child-theme {
 	.kc_row{
 		padding-top: 5em;
 		padding-bottom: 1em;
+		
+		@media screen and (max-width: 767px){
+			padding-top: 2em;
+		}
+		
 	}
 	
 	
@@ -623,7 +659,36 @@ body.child-theme {
 		}
 	}
 	
-	
+
+	#partners{
+		.kc_single_image{
+			
+			text-align: center;
+			
+			img{
+				display: inline-block;	
+			}
+			
+			@media screen and (max-width: 767px){
+			
+				max-width: 280px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 0;
+				margin-bottom: auto;
+				display: block;
+				width: 280px;
+				float: none;
+				
+			}
+
+			@media screen and (max-width: 575px){
+				max-width: 140px;
+				width: 140px;
+			}
+			
+		}
+	}
 	
 	
 	/* PDF Links */
@@ -637,6 +702,7 @@ body.child-theme {
 				-webkit-transition: all 0.5s;
 				-moz-transition: all 0.5s;
 				transition: all 0.5s;
+				max-width: 100px;
 			}
 		
 			text-align: center;
@@ -653,6 +719,12 @@ body.child-theme {
 					opacity: 0.66;
 				}
 			}
+			
+			
+			@media screen and (max-width: 767px){
+				margin-top: 2rem;
+			}
+			
 			
 		}
 		
@@ -724,13 +796,22 @@ body.child-theme {
 	}
 
 
-	@media screen and (max-width: 575px){
+	@media screen and (max-width: 767px){
+		
+		
+		.contact-us-form{
+			text-align: center;	
+		}
+		
 		.contactUs-address{
 			text-align: center;
+			float: none;
 			
-			.icon{
+			.icon, .text{
+				padding-left: 0!important;
 				margin-left: auto;
 				margin-right: auto;
+				float: none;
 			}
 			
 		}
@@ -781,7 +862,10 @@ body.child-theme {
 }
 
 
-
+#tribe-events .tribe-events-button, #tribe-events .tribe-events-button:hover, #tribe_events_filters_wrapper input[type=submit], .tribe-events-button, .tribe-events-button.tribe-active:hover, .tribe-events-button.tribe-inactive, .tribe-events-button:hover, .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-], .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-]>a{
+	
+	background-color: $darkgreen!important;
+}
 
 
 

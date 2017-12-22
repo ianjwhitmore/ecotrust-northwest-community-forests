@@ -27,9 +27,17 @@
 
 					</div>
 
-					<div class="entry-excerpt">
-						<p><?php echo wp_trim_words( get_the_content(), 20 ); ?></p>
-					</div>
+						                        							
+						<?php if(has_excerpt()){?>
+											
+							<p><?php the_excerpt(); ?></p>
+												
+						<?php } else { ?>
+						
+							<p><?php echo wp_trim_words( get_the_content(), 20 ); ?></p>
+					
+						<?php } ?>
+						
 
 					<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" class="kc-post-2-button">READ MORE</a>
 

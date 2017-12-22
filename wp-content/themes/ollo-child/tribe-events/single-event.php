@@ -126,9 +126,13 @@ $event_id = get_the_ID();
                                 <div class="event-title">
 									<?php the_title( '<h4>', '</h4>' ); ?>
                                     <ul>
-                                        <li><a href="<?php echo esc_url(get_permalink($event->ID));?>" class="tran3s"><?php echo balanceTags(date('d M Y', strtotime($event->EventStartDate)));?></a></li>
+                                        <li><a href="<?php echo esc_url(get_permalink($event->ID));?>" class="tran3s"><?php echo tribe_get_display_end_date($event->ID, false); ?></a></li>
+                                    <?php if(tribe_get_venue($event->ID)) : ?>
                                         <li>/</li>
-                                        <li><a href="<?php echo esc_url(get_permalink($event->ID));?>" class="tran3s"><?php echo tribe_get_venue( $event->ID );?></a></li>
+                                    <?php endif; ?>
+                                        
+                                        <li><?php echo tribe_get_venue( $event->ID );?></li>
+                                    
                                     </ul>
                             	</div>
                                 <?php do_action( 'tribe_events_single_event_before_the_content' ) ?>

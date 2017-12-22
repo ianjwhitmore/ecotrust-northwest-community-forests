@@ -120,9 +120,9 @@ body.child-theme {
     body.child-theme.page-contact .bottom-footer-banner h3 {
       color: #FFF !important;
       font-weight: 600; }
-  body.child-theme #mega-menu-holder > ul > li.current-category-parent > a {
+  body.child-theme #mega-menu-holder > ul > li.current-category-parent > a, body.child-theme #mega-menu-holder li.current-post-ancestor > a {
     color: #aadd96; }
-  body.child-theme #mega-menu-holder > ul > li.current-category-parent ul li.current-menu-item a {
+  body.child-theme #mega-menu-holder > ul > li.current-category-parent ul li.current-menu-item a, body.child-theme #mega-menu-holder li.current-post-ancestor ul li.current-menu-item a {
     color: #aadd96; }
   body.child-theme footer {
     margin-top: 8em;
@@ -139,6 +139,15 @@ body.child-theme {
       padding: 0.4em 1.2em; }
     body.child-theme footer a:hover {
       color: #aadd96; }
+    body.child-theme footer .footer-widget button {
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      transition: all 0.5s; }
+      body.child-theme footer .footer-widget button:hover {
+        background-color: #b18108;
+        color: #FFF; }
+        body.child-theme footer .footer-widget button:hover a {
+          color: #FFF; }
   body.child-theme .bottom-footer-banner + footer {
     margin-top: 0 !important; }
   body.child-theme .post-tag, body.child-theme .blog-details-content .tags {
@@ -247,6 +256,10 @@ body.child-theme {
     @media screen and (max-width: 991px) {
       body.child-theme .opacity h2 {
         font-size: 52px !important; } }
+  body.child-theme .fa-external-link {
+    vertical-align: middle;
+    font-size: 1.25rem;
+    padding-left: 0.75rem; }
   body.child-theme .tribe-events-list-widget .tribe-list-widget, body.child-theme .tribe-events-list-widget .tribe-list-widget li {
     margin-left: 0;
     padding-left: 0; }
@@ -272,6 +285,9 @@ body.child-theme {
     color: #FFF; }
   body.child-theme .owl-carousel .owl-item img {
     display: inline-block; }
+    @media screen and (max-width: 767px) {
+      body.child-theme .owl-carousel .owl-item img {
+        display: block; } }
   body.child-theme .entry-thumb-wrapper {
     max-height: 240px;
     overflow: hidden; }
@@ -291,6 +307,9 @@ body.child-theme {
   body.child-theme .kc_row {
     padding-top: 5em;
     padding-bottom: 1em; }
+    @media screen and (max-width: 767px) {
+      body.child-theme .kc_row {
+        padding-top: 2em; } }
   body.child-theme .kc-icon-wrapper i {
     color: inherit; }
   body.child-theme .kc_button, body.child-theme .kc-post-2-button {
@@ -331,18 +350,40 @@ body.child-theme {
           -webkit-border-radius: 0px;
           -moz-border-radius: 0px;
           border-radius: 0px; } }
+  body.child-theme #partners .kc_single_image {
+    text-align: center; }
+    body.child-theme #partners .kc_single_image img {
+      display: inline-block; }
+    @media screen and (max-width: 767px) {
+      body.child-theme #partners .kc_single_image {
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        margin-bottom: auto;
+        display: block;
+        width: 280px;
+        float: none; } }
+    @media screen and (max-width: 575px) {
+      body.child-theme #partners .kc_single_image {
+        max-width: 140px;
+        width: 140px; } }
   body.child-theme .pdf-links .kc_single_image {
     text-align: center; }
     body.child-theme .pdf-links .kc_single_image img {
       display: inline;
       -webkit-transition: all 0.5s;
       -moz-transition: all 0.5s;
-      transition: all 0.5s; }
+      transition: all 0.5s;
+      max-width: 100px; }
     body.child-theme .pdf-links .kc_single_image .scapt {
       font-family: "Open Sans", sans-serif !important;
       font-weight: 400; }
     body.child-theme .pdf-links .kc_single_image:hover img {
       opacity: 0.66; }
+    @media screen and (max-width: 767px) {
+      body.child-theme .pdf-links .kc_single_image {
+        margin-top: 2rem; } }
   body.child-theme .three-col-header {
     min-height: 120px; }
   body.child-theme .ollo-margin-top {
@@ -367,12 +408,17 @@ body.child-theme {
     body.child-theme #nwcf-three-columns {
       background: none;
       background-color: #1a3c14; } }
-  @media screen and (max-width: 575px) {
-    body.child-theme .contactUs-address {
+  @media screen and (max-width: 767px) {
+    body.child-theme .contact-us-form {
       text-align: center; }
-      body.child-theme .contactUs-address .icon {
+    body.child-theme .contactUs-address {
+      text-align: center;
+      float: none; }
+      body.child-theme .contactUs-address .icon, body.child-theme .contactUs-address .text {
+        padding-left: 0 !important;
         margin-left: auto;
-        margin-right: auto; } }
+        margin-right: auto;
+        float: none; } }
 
 /* Misc. Color Overrides */
 .charity-theme .theme-blog-sidebarOne .sidebar-search form button, .footer-widget .sidebar-search form button {
@@ -390,6 +436,9 @@ body.child-theme {
 
 .ch-s-bg-color, .charity-header .theme-main-menu .search:hover, .button-six:hover, .charity-theme .recent-cause .single-cause .title .clearfix a:hover, .charity-theme .recent-cause .all-cause:hover, .default-footer.charity-footer .top-footer .footer-subscribe form button:hover, .charity-theme .blog-details-content .reply-option button:hover, .charity-theme .donation-page form > button:hover, .error-page a:hover, .shop-page .main-wrapper .shop-sidebar .price-ranger .button-two:hover, .shop-page .main-wrapper .shop-sidebar .widget_price_filter .price_slider_amount .button:hover, .shop-details .single-product-details .info a:hover, .theme-contact-page-styleOne .contact-us-form form button:hover, .theme-contact-page-styleOne .contact-us-form form input[type="submit"]:hover {
   background-color: #b18108; }
+
+#tribe-events .tribe-events-button, #tribe-events .tribe-events-button:hover, #tribe_events_filters_wrapper input[type=submit], .tribe-events-button, .tribe-events-button.tribe-active:hover, .tribe-events-button.tribe-inactive, .tribe-events-button:hover, .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-], .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-] > a {
+  background-color: #1a3c14 !important; }
 
 /* Admin */
 body#tinymce.wp-editor blockquote {

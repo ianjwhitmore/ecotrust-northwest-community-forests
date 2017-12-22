@@ -41,8 +41,13 @@
                         <div class="title">
                             <ul>
                                 <li><a href="<?php echo esc_url(get_permalink($event->ID));?>" class="tran3s"><?php echo wp_kses_post(date('d M Y', strtotime($event->EventStartDate)));?></a></li>
-                                <li>/</li>
-                                <li><a href="<?php echo esc_url(get_permalink($event->ID));?>" class="tran3s"><?php echo tribe_get_venue( $event->ID );?></a></li>
+                                <?php if(tribe_get_venue($event->ID)) : ?>
+                                        <li>/</li>
+                                    <?php endif; ?>
+                                        
+                                        <li><?php echo tribe_get_venue( $event->ID );?></li>
+                                        
+                                        
                             </ul>
                             <h5><a href="<?php echo esc_url(get_permalink($event->ID));?>" class="tran3s"><?php echo wp_kses_post(get_the_title( $event->ID ));?></a></h5>
                         </div> <!-- /.title -->
