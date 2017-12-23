@@ -319,7 +319,7 @@ if ( ! class_exists( 'Charitable_Admin_Donation_Form' ) ) :
 		 * @return array
 		 */
 		public function get_donation_values() {
-			$values   = array(
+			$values = array(
 				'ID'        => $this->get_submitted_value( 'ID' ),
 				'donor_id'  => abs( $this->get_submitted_value( 'donor_id' ) ),				
 				'status'    => $this->get_submitted_value( 'status' ),
@@ -337,17 +337,8 @@ if ( ! class_exists( 'Charitable_Admin_Donation_Form' ) ) :
 			$values = $this->sanitize_submitted_donor( $values );
 
 			foreach ( $this->get_merged_fields() as $key => $field ) {
-				if ( array_key_exists( 'data_type', $field ) && 'core' != $field['data_type'] ) {
-					if ( array_key_exists( 'type', $field ) ) {
-						$data_type  = $field['data_type'];
-						$field_type = $field['type'];
-						$default    = 'checkbox' == $field_type ? false : '';
-						$submitted  = $this->get_submitted_value( $key );
-
-						if ( ! isset( $values[ $data_type ][ $key ] ) || false != $submitted ) {
-							$values[ $data_type ][ $key ] = $submitted ? $submitted : $default;
-						}
-					}
+				if ( $this->should_field_be_added( $field, $key, $values ) ) {
+					$values[ $field['data_type'] ][ $key ] = $this->get_field_value_from_submission( $field, $key );
 				}
 			}
 
@@ -363,6 +354,70 @@ if ( ! class_exists( 'Charitable_Admin_Donation_Form' ) ) :
 		}
 
 		/**
+		 * Return the value for a particular field from the form submission, or return the default.
+		 *
+		 * @since  1.5.7
+		 *
+		 * @param  array  $field The field definition.
+		 * @param  string $key   The key of the field.
+		 * @return mixed
+		 */
+		protected function get_field_value_from_submission( $field, $key ) {
+			$default = 'checkbox' == $field['type'] ? false : '';
+
+			return $this->get_submitted_value( $key, $default );
+		}
+
+		/**
+		 * Checks whether a field should be added to the values to be saved.
+		 *
+		 * @since  1.5.7
+		 *
+		 * @param  array  $field  The field definition.
+		 * @param  string $key    The key of the field.
+		 * @param  array  $values The sanitized values so far.
+		 * @return boolean
+		 */
+		protected function should_field_be_added( $field, $key, $values ) {
+			if ( ! $this->should_data_type_be_added( $field ) || ! array_key_exists( 'type', $field ) ) {
+				return false;
+			}
+
+			if ( isset( $values[ $field['data_type'] ][ $key ] ) ) {
+				return false;
+			}
+
+			return 'user' == $field['data_type'] ? $this->should_user_field_be_added( $values ) : true;
+		}
+
+		/**
+		 * Whether the passed data type should be added to the values to be saved.
+		 *
+		 * @since  1.5.7
+		 *
+		 * @param  array $field The field definition.
+		 * @return boolean
+		 */
+		protected function should_data_type_be_added( $field ) {
+			return array_key_exists( 'data_type', $field ) && 'core' != $field['data_type'];
+		}
+
+		/**
+		 * Returns whether users fields should be added.
+		 *
+		 * This will return true if no donor_id is set, or if this is an edit
+		 * of an existing donation.
+		 *
+		 * @since  1.5.7
+		 *
+		 * @param  array $values The sanitized values so far.
+		 * @return boolean
+		 */
+		protected function should_user_field_be_added( $values ) {
+			return ! $values['donor_id'] || $values['ID'];
+		}
+
+		/**
 		 * Return donor values.
 		 *
 		 * @since  1.5.0
@@ -371,25 +426,30 @@ if ( ! class_exists( 'Charitable_Admin_Donation_Form' ) ) :
 		 * @return array
 		 */
 		protected function sanitize_submitted_donor( $values ) {
-			/* If we did not receive a donor id, return without doing anything. */
-			if ( ! $values[ 'donor_id' ] ) {
+			/* Shortcircuit for new donations. */
+			if ( ! $values['donor_id'] ) {
+				if ( $values['ID'] ) {
+					$values['donor_id'] = charitable_get_donation( $values['ID'] )->get_donor_id();
+				}
+
 				return $values;
 			}
 
-			$donor = charitable_get_table( 'donors' )->get( $values['donor_id'] );
-
-			if ( ! $donor ) {
-				return $values;
-			}
+			$donor = new Charitable_Donor( $values['donor_id'] );
 
 			/* Populate the 'user' and 'user_id' args with this donor's stored details. */
-			$values['user'] = array(
-				'email'      => $donor->email,
-				'first_name' => $donor->first_name,
-				'last_name'  => $donor->last_name,
+			$values['user_id'] = $donor->get_user()->ID;
+			$values['user']    = array(
+				'email'      => $donor->get_donor_meta( 'email' ),
+				'first_name' => $donor->get_donor_meta( 'first_name' ),
+				'last_name'  => $donor->get_donor_meta( 'last_name' ),
+				'address'    => $donor->get_donor_meta( 'address' ),
+				'address_2'  => $donor->get_donor_meta( 'address_2' ),
+				'postcode'   => $donor->get_donor_meta( 'postcode' ),
+				'state'      => $donor->get_donor_meta( 'state' ),
+				'country'    => $donor->get_donor_meta( 'country' ),
+				'phone'      => $donor->get_donor_meta( 'phone' ),
 			);
-
-			$values['user_id'] = $donor->user_id;
 
 			return $values;
 		}

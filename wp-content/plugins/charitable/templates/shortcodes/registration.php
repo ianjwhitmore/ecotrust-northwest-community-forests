@@ -5,7 +5,7 @@
  * @author  Studio 164a
  * @package Charitable/Templates/Account
  * @since   1.0.0
- * @version 1.5.0
+ * @version 1.5.7
  */
 
 // Exit if accessed directly.
@@ -14,17 +14,23 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 $form = $view_args['form'];
 
 /**
- * @hook    charitable_user_registration_before
+ * Do something before rendering the user registration form.
+ *
+ * @param Charitable_Form $form      The form object.
+ * @param array           $view_args All args passed to template.
  */
-do_action( 'charitable_user_registration_before', $form );
+do_action( 'charitable_user_registration_before', $form, $view_args );
 
 ?>
 <form method="post" id="charitable-registration-form" class="charitable-form">
 	<?php
 	/**
-	 * @hook    charitable_form_before_fields
+	 * Do something before rendering the form fields.
+	 *
+	 * @param Charitable_Form $form      The form object.
+	 * @param array           $view_args All args passed to template.
 	 */
-	do_action( 'charitable_form_before_fields', $form );
+	do_action( 'charitable_form_before_fields', $form, $view_args );
 
 	?>
 	<div class="charitable-form-fields cf">
@@ -33,9 +39,12 @@ do_action( 'charitable_user_registration_before', $form );
 	<?php
 
 	/**
-	 * @hook    charitable_form_after_fields
+	 * Do something after rendering the form fields.
+	 *
+	 * @param Charitable_Form $form      The form object.
+	 * @param array           $view_args All args passed to template.
 	 */
-	do_action( 'charitable_form_after_fields', $form );
+	do_action( 'charitable_form_after_fields', $form, $view_args );
 
 	?>
 	<div class="charitable-form-field charitable-submit-field">
@@ -45,6 +54,9 @@ do_action( 'charitable_user_registration_before', $form );
 <?php
 
 /**
- * @hook    charitable_user_registration_after
+ * Do something after rendering the user registration form.
+ *
+ * @param Charitable_Form $form      The form object.
+ * @param array           $view_args All args passed to template.
  */
-do_action( 'charitable_user_registration_after', $form );
+do_action( 'charitable_user_registration_after', $form, $view_args );

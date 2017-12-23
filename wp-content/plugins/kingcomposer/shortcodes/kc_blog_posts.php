@@ -325,13 +325,6 @@ $css_class[] = 'kc-image-align-' . $image_align;
 							<?php endif ?>
 							<?php if ( $words > 0 ): ?>
 								<div class="entry-excerpt">
-									
-									<?php if(the_excerpt()){?>
-											
-											Test.
-									
-									<?php } ?>
-									
 									<p><?php echo wp_trim_words( $post_content, $words ); ?></p>
 								</div>
 							<?php endif;

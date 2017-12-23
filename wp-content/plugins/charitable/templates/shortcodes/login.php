@@ -8,7 +8,7 @@
  * @author  Eric Daams
  * @package Charitable/Templates/Account
  * @since   1.0.0
- * @version 1.4.2
+ * @version 1.5.7
  */
 
 // Exit if accessed directly.
@@ -21,9 +21,11 @@ $login_form_args = array_key_exists( 'login_form_args', $view_args ) ? $view_arg
 	<?php
 
 	/**
-	 * @hook    charitable_login_form_before
+	 * Do something before the login form.
+	 *
+	 * @param array $view_args All args passed to template.
 	 */
-	do_action( 'charitable_login_form_before' );
+	do_action( 'charitable_login_form_before', $view_args );
 
 	wp_login_form( $login_form_args );
 
@@ -37,9 +39,11 @@ $login_form_args = array_key_exists( 'login_form_args', $view_args ) ? $view_arg
 	<?php
 
 	/**
-	 * @hook    charitable_login_form_after
+	 * Do something after showing the login form.
+	 *
+	 * @param array $view_args All args passed to template.
 	 */
-	do_action( 'charitable_login_form_after' )
+	do_action( 'charitable_login_form_after', $view_args )
 
 	?>
 </div>
